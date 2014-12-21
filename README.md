@@ -59,12 +59,47 @@ CuriositySoftware Objective-Cスタイルガイドライン
 
 **理由**
 
-- #includeの順序依存による問題を解消するため
 - コンパイル速度を上昇させるため
 
-## ブロックスの記述は波括弧を改行し、改行した位置で書き始める
+## Blocksを引数にとるメソッドの呼び出し時に、外部引数で改行を行うなら波括弧前で改行しインデント位置を調整する
 
-- あとで書く
+Blocksを引数に取るメソッドがあり外部引数名で改行する場合、Xcodeエディタによりインデントされる位置は深くなり、手動でインデント位置を調整しても新しく作成する行のインデント位置は矯正されます。
+
+**スタイルに沿っていない例**
+
+```objc
+[apiClient GET:path
+    parameters:parameters
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+
+           if (responseObject) {
+             ....
+           }
+```
+
+括弧の位置を改行するこれを回避できます
+
+**スタイルに沿った例**
+
+```objc
+[apiClient GET:path
+    parameters:parameters
+       success:^(NSURLSessionDataTask *task, id responseObject)
+{
+    if (responseObject) {
+      ...
+    }
+```
+
+ただし、外部引数名の前で開業しなければ波括弧を改行しなくてもインデント位置が深くなることはありません
+
+```objc
+[apiClient GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+
+    if (responseObject) {
+      ...
+    }
+```
 
 ## 積極的にドット記法を使おう
 
@@ -259,7 +294,7 @@ if (error) {
 
 ## 変数
 
-変数のアスタリスクは変数名の前につけましょう。 
+変数のアスタリスクは変数名の前につけましょう。
 
 可能ならばメンバ変数にはアクセサ経由でのアクセスを行いましょう。逆にプロパティによるアクセスを行うべきではない場合についての詳細は[Appleのリファレンスに詳しく書かれています](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)。
 
@@ -375,7 +410,7 @@ AppDelegateクラスにプレフィックスは必要ありません。これは
 
 - (void)dealloc {
     //必要であればメンバ変数にnilを代入するなど
-    //ARCでなければ[dummy release]; 
+    //ARCでなければ[dummy release];
     //ARCでなければ[super dealloc];
 }
 
@@ -462,7 +497,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 - enumはC++11の標準化によりコンパイラは基盤となる型を先行宣言出来るようになった
  - それによって型安全になった
 - NS_ENUMはそのためのマクロで古いコンパイラにも対応している
-- NS_ENUMはswitch文の記述漏れもチェックできる 
+- NS_ENUMはswitch文の記述漏れもチェックできる
 
 --
 
@@ -541,8 +576,3 @@ if (someObject == nil) {
 **理由**
 
 - Objective-CではnilはNOとしてデザインされている
-
-
-
-
-
