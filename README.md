@@ -15,8 +15,7 @@ CuriositySoftware Objective-Cスタイルガイドライン
 * [Objective-Cプログラミング言語](https://developer.apple.com/jp/devcenter/ios/library/documentation/ObjC.pdf)
 * [Cocoa基礎ガイド](https://developer.apple.com/jp/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/chapter_1_section_1.html)
 * [Cocoa向けコーディングガイドライン](https://developer.apple.com/jp/devcenter/ios/library/documentation/CodingGuidelines.pdf)
-* [iOSアプリケーションプログラミングガイド](https://developer.apple.
- com/jp/devcenter/ios/library/documentation/iPhoneAppProgrammingGuide.pdf)
+* [iOSアプリケーションプログラミングガイド](https://developer.apple.com/jp/devcenter/ios/library/documentation/iPhoneAppProgrammingGuide.pdf)
 
 ## 目次
 
